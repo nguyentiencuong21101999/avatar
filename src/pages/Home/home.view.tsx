@@ -1,29 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-interface RootState {
-  home: {
-    // Add your home state interface here
-  };
+interface HomeComponentProps {
+  handleClickChangePage: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-interface Ref {
-  focus: () => {};
-}
-const HomePage = () => {
-  const native = useNavigate();
-  const homeState = useSelector((state: RootState) => state.home);
-  const ref = useRef(null);
-  useEffect(() => {
-    console.log("mounted");
-  }, [homeState]);
-
-  const handleClickChangePage = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    native("/farm", {
-      state: { user: "abc" },
-    });
-  };
+const HomeView = (props: HomeComponentProps) => {
+  const { handleClickChangePage } = props;
   return (
     <div
       id="bg"
@@ -44,4 +24,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomeView;

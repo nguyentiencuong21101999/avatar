@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FarmPage from "./pages/Farm";
-import HomePage from "./pages/Home";
+import FarmComponent from "./pages/Farm/farm.component";
+import HomeComponent from "./pages/Home/home.component";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/farm" element={<FarmPage/>} />
+        <Route path="/" element={<HomeComponent />} />
+        <Route path="/farm" element={<FarmComponent />} />
       </Routes>
     </BrowserRouter>
   );
